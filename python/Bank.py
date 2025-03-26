@@ -73,9 +73,16 @@ class BankAccount:
         if amount > self._max_transaction_limit:
             raise ValueError(f"Withdrawal amount exceeds the maximum limit of {self._max_transaction_limit}.")
 
-        if self._balance + self._overdraft_limit >= amount:
+        # Check if withdrawal is within balance and overdraft limit
+        if self._balance >= amount:
             self._balance -= amount
             self._log_transaction("WITHDRAWAL", amount)
+            return True
+        elif self._balance < amount <= (self._balance + self._overdraft_limit):
+            overdraft_used = amount - self._balance
+            self._balance = 0  # Deplete balance
+            self._overdraft_limit -= overdraft_used  # Deduct from overdraft limit
+            self._log_transaction("WITHDRAWAL (OVERDRAFT)", amount)
             return True
 
         raise ValueError("Insufficient funds, including overdraft limit.")
