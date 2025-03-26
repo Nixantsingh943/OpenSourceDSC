@@ -40,20 +40,25 @@ int main() {
 }
 
 Student* create_student(const char* name, int age) {
+    if (strlen(name) >= MAX_NAME_LENGTH) {
+        fprintf(stderr, "Error: Name exceeds maximum allowed length of %d characters.\n", MAX_NAME_LENGTH - 1);
+        return NULL;
+    }
+
     Student* new_student = malloc(sizeof(Student));
     if (new_student == NULL) {
         fprintf(stderr, "Memory allocation failed for new student.\n");
         return NULL;
     }
 
-    // Prevent buffer overflow by using strncpy
+    // Safely copy the name with validation
     strncpy(new_student->name, name, MAX_NAME_LENGTH - 1);
     new_student->name[MAX_NAME_LENGTH - 1] = '\0'; // Ensure null termination
 
     new_student->age = age;
     new_student->grades = NULL;
     new_student->grade_count = 0;
-    
+
     // Add to global database
     if (total_students < MAX_STUDENTS) {
         student_database[total_students++] = new_student;
@@ -62,7 +67,7 @@ Student* create_student(const char* name, int age) {
         free(new_student);
         return NULL;
     }
-    
+
     return new_student;
 }
 
