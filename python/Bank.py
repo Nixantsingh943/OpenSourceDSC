@@ -10,25 +10,37 @@ class BankAccount:
         self._balance = initial_balance
         self.transaction_history = []
         self.is_active = True
-        self._overdraft_limit = 500 
+        self._overdraft_limit = 500
+        self._max_transaction_limit = 10000  # Example maximum transaction limit
 
     def deposit(self, amount):
+        # Type and range validation
+        if not isinstance(amount, (int, float)):
+            raise TypeError("Deposit amount must be a number (int or float).")
+        if amount <= 0:
+            raise ValueError("Deposit amount must be greater than 0.")
+        if amount > self._max_transaction_limit:
+            raise ValueError(f"Deposit amount exceeds the maximum limit of {self._max_transaction_limit}.")
+
         self._balance += amount
         self._log_transaction("DEPOSIT", amount)
         return True
 
     def withdraw(self, amount):
+        # Type and range validation
+        if not isinstance(amount, (int, float)):
+            raise TypeError("Withdrawal amount must be a number (int or float).")
         if amount <= 0:
-            print("Invalid withdrawal amount")
-            return False
-        
+            raise ValueError("Withdrawal amount must be greater than 0.")
+        if amount > self._max_transaction_limit:
+            raise ValueError(f"Withdrawal amount exceeds the maximum limit of {self._max_transaction_limit}.")
+
         if self._balance + self._overdraft_limit >= amount:
             self._balance -= amount
             self._log_transaction("WITHDRAWAL", amount)
             return True
-        
-        print("Insufficient funds")
-        return False
+
+        raise ValueError("Insufficient funds, including overdraft limit.")
 
     def _log_transaction(self, transaction_type, amount):
         transaction = {
