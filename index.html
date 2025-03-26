@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Club - Home</title>
-    
-    <!-- Google Fonts Import -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/layout.css">
-</head>
 <body>
     <header class="header">
         <div class="header__logo">
@@ -32,88 +18,90 @@
         <button id="dark-mode-toggle" class="header__dark-mode-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
     </header>
 
-    <div class="hero">
-        <h1 class="hero__title">Welcome to the Tech Club</h1>
-        <p class="hero__subtitle">Where innovation meets community</p>
-        <button class="hero__cta">Join Us</button>
-    </div>
+    <main>
+        <section class="hero">
+            <h1 class="hero__title">Welcome to the Tech Club</h1>
+            <p class="hero__subtitle">Where innovation meets community</p>
+            <button class="hero__cta">Join Us</button>
+        </section>
 
-    <div class="events">
-        <h2 class="events__title">Upcoming Events</h2>
-        
-        <div id="countdown" class="events__countdown" aria-live="polite" aria-atomic="true">
-            Loading...
-        </div>        
-        <div class="events__cards">
-            <div class="event-card">
-                <div class="event-card__image">
-                    <img src="images/event1.jpg" alt="Hackathon 2025 - A 24-hour coding marathon">
-                </div>
-                <div class="event-card__info">
-                    <h3 class="event-card__title">Hackathon 2025</h3>
-                    <p class="event-card__date">April 15, 2025</p>
-                    <p class="event-card__description">Join us for a 24-hour coding marathon!</p>
-                    <a href="register-hackathon.html" class="event-card__register-link btn btn--primary">Register Now</a>
-                </div>
+        <section class="events">
+            <h2 class="events__title">Upcoming Events</h2>
+            
+            <div id="countdown" class="events__countdown" aria-live="polite" aria-atomic="true">
+                Loading...
+            </div>        
+            <div class="events__cards">
+                <article class="event-card">
+                    <div class="event-card__image">
+                        <img src="images/event1.jpg" alt="Hackathon 2025 - A 24-hour coding marathon">
+                    </div>
+                    <div class="event-card__info">
+                        <h3 class="event-card__title">Hackathon 2025</h3>
+                        <p class="event-card__date">April 15, 2025</p>
+                        <p class="event-card__description">Join us for a 24-hour coding marathon!</p>
+                        <a href="register-hackathon.html" class="event-card__register-link btn btn--primary">Register Now</a>
+                    </div>
+                </article>
+                
+                <article class="event-card">
+                    <div class="event-card__image">
+                        <img src="images/event2.jpg" alt="Workshop Series - Learn new technologies with experts">
+                    </div>
+                    <div class="event-card__info">
+                        <h3 class="event-card__title">Workshop Series</h3>
+                        <p class="event-card__date">Every Saturday</p>
+                        <p class="event-card__description">Learn new technologies with our experts</p>
+                        <a href="register-workshop.html" class="event-card__register-link btn btn--primary">Register Now</a>
+                    </div>
+                </article>
+                
+                <article class="event-card">
+                    <div class="event-card__image">
+                        <img src="images/event3.jpg" alt="Tech Talk - AI Ethics and the Future of Work">
+                    </div>
+                    <div class="event-card__info">
+                        <h3 class="event-card__title">Tech Talk</h3>
+                        <p class="event-card__date">April 30, 2025</p>
+                        <p class="event-card__description">AI Ethics and the Future of Work</p>
+                        <a href="register-techtalk.html" class="event-card__register-link btn btn--primary">Register Now</a>
+                    </div>
+                </article>
             </div>
             
-            <div class="event-card">
-                <div class="event-card__image">
-                    <img src="images/event2.jpg" alt="Workshop Series - Learn new technologies with experts">
-                </div>
-                <div class="event-card__info">
-                    <h3 class="event-card__title">Workshop Series</h3>
-                    <p class="event-card__date">Every Saturday</p>
-                    <p class="event-card__description">Learn new technologies with our experts</p>
-                    <a href="register-workshop.html" class="event-card__register-link btn btn--primary">Register Now</a>
-                </div>
+            <div class="events__view-all">
+                <a href="events.html" class="btn btn--primary">View All Events</a>
             </div>
-            
-            <div class="event-card">
-                <div class="event-card__image">
-                    <img src="images/event3.jpg" alt="Tech Talk - AI Ethics and the Future of Work">
-                </div>
-                <div class="event-card__info">
-                    <h3 class="event-card__title">Tech Talk</h3>
-                    <p class="event-card__date">April 30, 2025</p>
-                    <p class="event-card__description">AI Ethics and the Future of Work</p>
-                    <a href="register-techtalk.html" class="event-card__register-link btn btn--primary">Register Now</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="events__view-all">
-            <a href="events.html" class="btn btn--primary">View All Events</a>
-        </div>
-    </div>
-    
-    <div class="achievements">
-        <h2 class="achievements__title">Our Impact</h2>
-        <div class="achievements__grid">
-            <div class="achievement-card">
-                <h3 class="achievement-card__number">500+</h3>
-                <p class="achievement-card__description">Active Members</p>
-            </div>
-            <div class="achievement-card">
-                <h3 class="achievement-card__number">20+</h3>
-                <p class="achievement-card__description">Events Per Year</p>
-            </div>
-            <div class="achievement-card">
-                <h3 class="achievement-card__number">50+</h3>
-                <p class="achievement-card__description">Open Source Contributions</p>
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="newsletter">
-        <h2 class="newsletter__title">Stay Updated</h2>
-        <p class="newsletter__description">Subscribe to our newsletter for the latest events and tech news.</p>
-        <form class="newsletter__form">
-            <label for="email" class="sr-only">Email Address</label>
-            <input type="email" id="email" class="newsletter__input" placeholder="Your Email Address" required>
-            <button type="submit" class="newsletter__submit">Subscribe</button>
-        </form>
-    </div>
+        <section class="achievements">
+            <h2 class="achievements__title">Our Impact</h2>
+            <div class="achievements__grid">
+                <article class="achievement-card">
+                    <h3 class="achievement-card__number">500+</h3>
+                    <p class="achievement-card__description">Active Members</p>
+                </article>
+                <article class="achievement-card">
+                    <h3 class="achievement-card__number">20+</h3>
+                    <p class="achievement-card__description">Events Per Year</p>
+                </article>
+                <article class="achievement-card">
+                    <h3 class="achievement-card__number">50+</h3>
+                    <p class="achievement-card__description">Open Source Contributions</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2 class="newsletter__title">Stay Updated</h2>
+            <p class="newsletter__description">Subscribe to our newsletter for the latest events and tech news.</p>
+            <form class="newsletter__form">
+                <label for="email" class="sr-only">Email Address</label>
+                <input type="email" id="email" class="newsletter__input" placeholder="Your Email Address" required>
+                <button type="submit" class="newsletter__submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer__col">
@@ -155,7 +143,4 @@
             <p>© Tech Club 2025. All rights reserved.</p>
         </div>
     </footer>
-    
-    <script src="js/main.js"></script>
 </body>
-</html>
